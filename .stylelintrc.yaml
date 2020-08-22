@@ -1,0 +1,3 @@
+extends: 'stylelint-config-outside-in-order'
+rules:
+  color-no-invalid-hex: true
