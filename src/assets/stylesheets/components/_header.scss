@@ -1,0 +1,17 @@
+.header {
+  @extend .container;
+
+  margin-top: 20px;
+
+  &__logo {
+    color: $butter;
+    cursor: pointer;
+    font-family: $logoFont;
+    font-size: 3rem;
+    text-align: center;
+
+    @include breakpoint(desktop) {
+      font-size: 3.5rem;
+    }
+  }
+}

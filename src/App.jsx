@@ -3,10 +3,15 @@ import React from 'react'
 // Main style
 import './assets/stylesheets/app.scss'
 
+// Components
+import Header from './components/Header'
+import Main from './components/Main'
+
 function App() {
   return (
     <div>
-      Hello, world!
+      <Header />
+      <Main />
     </div>
   );
 }
