@@ -1,0 +1,14 @@
+$gapMobile: 24px;
+
+.container {
+  width: 100%;
+  padding-right: $gapMobile;
+  padding-left: $gapMobile;
+
+  @include breakpoint(desktop) {
+    max-width: $desktop;
+    margin: 0 auto;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
