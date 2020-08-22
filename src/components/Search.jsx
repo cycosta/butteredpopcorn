@@ -1,7 +1,7 @@
 import React from 'react'
 
 // Components
-import Clapperboard from './Clapperboard'
+import Clapperboard from './icons/Clapperboard'
 
 function Search() {
   return (

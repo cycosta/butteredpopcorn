@@ -1,0 +1,107 @@
+.card {
+  position: relative;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
+
+  &:hover {
+    .card__figure {
+      &::after {
+        z-index: 1;
+        background: linear-gradient(0deg, rgba(0, 0, 0, .8) 40%, rgba(255, 255 ,255 , 0) 100%);
+      }
+    }
+
+    .card__image {
+      filter: blur(2px);
+    }
+
+    .card__button {
+      opacity: 1;
+    }
+	}
+
+  &__figure {
+    overflow: hidden;
+
+		&::after {
+			position: absolute;
+			top: 0;
+			display: block;
+			content: '';
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(0deg, rgba(0, 0, 0, .8) 10%, rgba(255, 255 ,255 , 0) 100%);
+      transition: .3s;
+		}
+	}
+
+	&__image {
+    width: 100%;
+    min-height: 460px;
+    max-height: 460px;
+    object-fit: cover;
+    transition: .3s;
+	}
+
+  &__caption {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: white;
+    transition: .3s;
+  }
+
+  &__title {
+		font-family: $titleFont;
+    font-size: 2.4rem;
+	}
+
+  &__year {
+    margin-top: 10px;
+    padding: 5px 10px;
+    color: $butter;
+    border: 1px solid $butter;
+    font-family: $textFont;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+  }
+
+  &__bookmark {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+  }
+
+  &__button {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: $butter;
+    border: 0;
+    border-radius: 50px;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
+    transform: translateX(-50%);
+
+    @include breakpoint(desktop) {
+      top: 50%;
+      bottom: unset;
+      width: 60px;
+      height: 60px;
+      opacity: 0;
+      transform: translate(-50%, -50%);
+      transition: .3s;
+    }
+  }
+}
