@@ -1,0 +1,12 @@
+.heart {
+  width: 25px;
+  height: 25px;
+  fill: none;
+  stroke: white;
+  stroke-width: 40;
+
+  &--active {
+    fill: $butter;
+    stroke: $butter;
+  }
+}
