@@ -5,4 +5,11 @@
 // Settings
 @import './settings/breakpoints';
 @import './settings/typography';
+@import './settings/colors';
 @import './settings/utilities';
+
+// Components
+@import './components/header';
+@import './components/main';
+@import './components/search';
+@import './components/clapperboard';
