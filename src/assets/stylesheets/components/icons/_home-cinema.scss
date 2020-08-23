@@ -1,0 +1,10 @@
+.home-cinema {
+  width: 200px;
+  height: 200px;
+  margin: 20px 0;
+
+  @include breakpoint(tablet) {
+    width: 300px;
+    height: 300px;
+  }
+}

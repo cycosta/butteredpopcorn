@@ -41,5 +41,9 @@
     padding: 0;
     background-color: transparent;
     border: 0;
+
+    @include breakpoint(desktop) {
+      margin-right: 15px;
+    }
   }
 }
