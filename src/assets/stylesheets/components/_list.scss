@@ -11,4 +11,12 @@
   @include breakpoint(desktop) {
     grid-template-columns: repeat(4, 1fr);
   }
+
+  &__noresult {
+    grid-column: 1/5;
+    color: $butter;
+    font-family: $titleFont;
+    font-size: 2.4rem;
+    text-align: left;
+  }
 }
