@@ -1,0 +1,29 @@
+.movie {
+  display: grid;
+  grid-row-gap: 40px;
+  width: 100%;
+  margin: 20px 0;
+  text-align: left;
+
+  @include breakpoint(tablet) {
+    grid-gap: 40px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &__title {
+    font-family: $titleFont;
+    font-size: 2.6rem;
+  }
+
+  &__label {
+    border-bottom: 1px solid $butter;
+    font-family: $titleFont;
+    font-size: 1.6rem;
+    font-weight: 200;
+  }
+
+  &__image {
+    width: 100%;
+    border-radius: 10px;
+  }
+}
