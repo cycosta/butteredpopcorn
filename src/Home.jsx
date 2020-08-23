@@ -7,7 +7,7 @@ import './assets/stylesheets/app.scss'
 import Header from './components/Header'
 import Main from './components/Main'
 
-function App() {
+function Home() {
   return (
     <div>
       <Header />
@@ -16,4 +16,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home

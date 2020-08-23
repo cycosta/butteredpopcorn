@@ -1,10 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
+import { Router } from '@reach/router'
+
+import Home from './Home'
+import Movie from './Movie'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Home path="/" />
+      <Movie path="/movie/:movieId" />
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
