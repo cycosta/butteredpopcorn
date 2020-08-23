@@ -10,7 +10,7 @@ function Search() {
         type="search"
         name="search"
         className="search__input"
-        placeholder="What do you wanna watch?"
+        placeholder="Let's find your next movie"
         required
       />
       <button type="submit" className="search__button">
