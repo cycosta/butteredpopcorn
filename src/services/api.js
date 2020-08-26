@@ -9,7 +9,7 @@ export function getMovies(keyword) {
 
 // Get movie by id
 export function getMovie(id) {
-  return fetch(`http://www.omdbapi.com/?apiKey=${apiKey}&i=${id}&plot=full`)
+  return fetch(`http://www.omdbapi.com/?apiKey=${apiKey}&i=${id}`)
   .then(response => response.json())
   .catch((error) => console.error(error))
 }
