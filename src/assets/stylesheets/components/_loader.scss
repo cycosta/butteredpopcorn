@@ -1,0 +1,23 @@
+.loader {
+  display: flex;
+  justify-content: center;
+  margin-top: 120px;
+
+  &__container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 40px;
+  }
+
+  &__film {
+    position: absolute;
+    top: -30px;
+    left: 0;
+    display: flex;
+  }
+
+  &__film-img {
+    animation: rotate 1.5s linear infinite;
+  }
+}
