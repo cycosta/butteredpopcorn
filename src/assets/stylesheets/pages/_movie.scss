@@ -1,0 +1,159 @@
+.movie {
+  margin: 60px 0 20px;
+
+  @include breakpoint(tablet) {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  &__return {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: $snow;
+  }
+
+  &__content {
+    display: grid;
+    grid-gap: 20px;
+    text-align: left;
+
+    @include breakpoint(tablet) {
+      grid-template-columns: 2fr 1fr;
+      margin: 0;
+    }
+  }
+
+  &__info {
+    @include breakpoint(tablet) {
+      max-width: 600px;
+    }
+  }
+
+  &__header-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  &__header-item {
+    position: relative;
+    padding-right: 20px;
+    color: $nickel;
+    font-family: $titleFont;
+    font-size: 1.6rem;
+    font-weight: 200;
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 8px;
+      display: block;
+      content: '•';
+    }
+
+    &:last-child {
+      padding: 3px;
+      color: $charcoal;
+      background-color: $nickel;
+      border-radius: 3px;
+      font-weight: 700;
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &__title {
+    font-family: $titleFont;
+    font-size: 3.6rem;
+    font-weight: 700;
+  }
+
+  &__label {
+    margin: 20px 0 10px;
+    color: $butter;
+    font-family: $titleFont;
+    font-size: 1.6rem;
+    font-weight: 200;
+  }
+
+  &__text {
+    font-family: $textFont;
+    font-size: 1.4rem;
+    font-weight: 300;
+    line-height: 2.2rem;
+
+    &--plot {
+      font-size: 1.6rem;
+    }
+  }
+
+  &__ratings {
+    display: flex;
+    margin-top: 30px;
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+
+    &:first-child {
+      margin-right: 20px;
+    }
+  }
+
+  &__rating-icon {
+    margin-right: 5px;
+  }
+
+  &__rating-img {
+    max-width: 45px;
+  }
+
+  &__rating-value {
+    margin-bottom: 8px;
+    font-family: $titleFont;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  &__rating-label {
+    font-family: $titleFont;
+    font-size: 1.4rem;
+    font-weight: 200;
+  }
+
+  &__poster {
+    position: relative;
+    margin-top: 20px;
+
+    @include breakpoint(tablet) {
+      margin: 0;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
+
+    @include breakpoint(tablet) {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__bookmark {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+  }
+}

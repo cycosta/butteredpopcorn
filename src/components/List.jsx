@@ -5,11 +5,10 @@ import PropTypes from 'prop-types'
 import Card from './Card'
 
 function List({ movies, errorMessage }) {
-  console.log(movies)
   return (
     <ul className="list">
       {movies.length > 0 ? movies.map(({ imdbID, Poster, Title, Year }) => (
-        <Card key={imdbID} poster={Poster} title={Title} year={Year} />
+        <Card key={imdbID} id={imdbID} poster={Poster} title={Title} year={Year} />
       )) : (
         <li className="list__noresult">{errorMessage}</li>
       )}

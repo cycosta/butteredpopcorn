@@ -6,3 +6,10 @@ export function getMovies(keyword) {
     .then(response => response.json())
     .catch((error) => console.error(error))
 }
+
+// Get movie by id
+export function getMovie(id) {
+  return fetch(`http://www.omdbapi.com/?apiKey=${apiKey}&i=${id}`)
+  .then(response => response.json())
+  .catch((error) => console.error(error))
+}
