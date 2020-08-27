@@ -1,13 +1,32 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 
-function Heart() {
+function Heart({ movieId }) {
+  const [favorite, setFavorite] = useState()
+
+  useEffect(() => {
+    const isFavorite = localStorage.getItem(movieId)
+    setFavorite(isFavorite)
+  }, [])
+
+  function handleClick() {
+    if (favorite) {
+      setFavorite(false)
+      localStorage.removeItem(movieId)
+    } else {
+      setFavorite(true)
+      localStorage.setItem(movieId, true)
+    }
+  }
+
   return (
     <svg
-      className="heart"
+      className={`heart ${favorite ? 'heart--active' : ''}`}
       xmlns="http://www.w3.org/2000/svg"
       x="0px"
       y="0px"
       viewBox="0 0 500 550"
+      onClick={() => handleClick()}
     >
       <g>
         <path d="M376,30c-27.783,0-53.255,8.804-75.707,26.168c-21.525,16.647-35.856,37.85-44.293,53.268
@@ -18,6 +37,10 @@ function Heart() {
       </g>
     </svg>
   )
+}
+
+Heart.propTypes = {
+  movieId: PropTypes.string
 }
 
 export default Heart
