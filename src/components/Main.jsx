@@ -17,19 +17,33 @@ function Main() {
 
   const [loading, setLoading] = useState(false)
 
+  const [totalResults, setTotalResults] = useState('')
+
+  const [page, setPage] = useState()
+
   useEffect(() => {
     if (!keyword) return
     setLoading(true)
-    getMovies(keyword).then(({ Error: message, Search }) => {
-      if (Search) {
-        setMovies(Search)
-      } else {
-        setMovies([])
-        setErrorMessage(message)
-      }
+    getMovies(keyword, page).then(({ movies, total, message }) => {
+      setMovies(movies)
+      setTotalResults(total)
+      setErrorMessage(message)
+      setLoading(false)
+      setPage(1)
+    })
+  // eslint-disable-next-line
+  }, [keyword])
+
+  useEffect(() => {
+    setLoading(true)
+    getMovies(keyword, page).then(({ movies, total, message }) => {
+      setMovies(movies)
+      setTotalResults(total)
+      setErrorMessage(message)
       setLoading(false)
     })
-  }, [keyword])
+  // eslint-disable-next-line
+  }, [page])
 
   return (
     <main className="main">
@@ -38,7 +52,17 @@ function Main() {
       {loading ? (
         <Loader />
       ) : (
-        !keyword ? <HomeCinema /> : <List movies={movies} errorMessage={errorMessage} />
+        !keyword ? (
+          <HomeCinema />
+        ) : (
+          <List
+            movies={movies}
+            errorMessage={errorMessage}
+            totalResults={totalResults}
+            setPage={setPage}
+            page={page}
+          />
+        )
       )}
     </main>
   )
