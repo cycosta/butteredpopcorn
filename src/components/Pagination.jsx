@@ -25,9 +25,13 @@ function Pagination({ totalResults }) {
           nextLabel={'>'}
           breakLabel={'...'}
           pageCount={pages}
+          pageRangeDisplayed={9}
           containerClassName={'pagination'}
-          subContainerClassName={'pagination__pages'}
+          pageClassName={'pagination__pages'}
           activeClassName={'pagination__pages--active'}
+          previousClassName={'pagination__arrow'}
+          nextClassName={'pagination__arrow'}
+          breakClassName={'pagination__ellipsis'}
         />
       </div>
     </div>

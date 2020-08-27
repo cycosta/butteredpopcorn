@@ -1,0 +1,33 @@
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 60px 0 20px;
+  font-family: $titleFont;
+  font-size: 1.4rem;
+
+  &__pages {
+    margin: 3px;
+    padding: 6px 10px;
+    color: $snow;
+    background-color: $onyx;
+    border-radius: 3px;
+    cursor: pointer;
+
+    @include breakpoint(desktop) {
+      margin: 0 3px;
+    }
+
+    &--active {
+      color: $charcoal;
+      background-color: $butter;
+      border-radius: 3px;
+    }
+  }
+
+  &__arrow,
+  &__ellipsis {
+    margin: 0 10px;
+  }
+}
