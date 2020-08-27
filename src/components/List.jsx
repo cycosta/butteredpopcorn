@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import Card from './Card'
 import Pagination from './Pagination'
 
-function List({ movies, errorMessage, totalResults }) {
+function List({ movies, errorMessage, totalResults, setPage, page }) {
   return (
     <>
       <ul className="list">
@@ -15,7 +15,7 @@ function List({ movies, errorMessage, totalResults }) {
           <li className="list__noresult">{errorMessage}</li>
         )}
       </ul>
-      <Pagination totalResults={totalResults} />
+      <Pagination totalResults={totalResults} setPage={setPage} page={page} />
     </>
   )
 }
@@ -23,7 +23,9 @@ function List({ movies, errorMessage, totalResults }) {
 List.propTypes = {
   movies: PropTypes.array,
   errorMessage: PropTypes.string,
-  totalResults: PropTypes.string
+  totalResults: PropTypes.string,
+  setPage: PropTypes.func,
+  page: PropTypes.number
 }
 
 export default List

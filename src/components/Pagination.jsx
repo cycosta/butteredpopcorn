@@ -1,45 +1,44 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 // Lib
-import ReactPaginate from 'react-paginate'
+import ReactPagination from "react-js-pagination";
 
-function Pagination({ totalResults }) {
-  const [pages, setPages] = useState(0)
+function Pagination({ totalResults, setPage, page }) {
+  // const [pages, setPages] = useState(0)
 
-  useEffect(() => {
-    if (!totalResults) return
-    console.log(getPages(totalResults))
-    setPages(getPages(totalResults))
-  }, [totalResults])
+  // useEffect(() => {
+  //   if (!totalResults) return
+  //   setPages(getPages(totalResults))
+  // }, [totalResults])
 
-  function getPages(n) {
-    return Math.ceil(parseInt(n) / 10)
-  }
+  // function getPages(n) {
+  //   return Math.ceil(parseInt(n) / 10)
+  // }
 
   return (
     <div>
-      <div className="commentBox">
-        <ReactPaginate
-          previousLabel={'<'}
-          nextLabel={'>'}
-          breakLabel={'...'}
-          pageCount={pages}
-          pageRangeDisplayed={9}
-          containerClassName={'pagination'}
-          pageClassName={'pagination__pages'}
-          activeClassName={'pagination__pages--active'}
-          previousClassName={'pagination__arrow'}
-          nextClassName={'pagination__arrow'}
-          breakClassName={'pagination__ellipsis'}
+        <ReactPagination
+          activePage={page}
+          itemsCountPerPage={10}
+          totalItemsCount={parseInt(totalResults)}
+          pageRangeDisplayed={10}
+          innerClass={'pagination'}
+          itemClass={'pagination__page'}
+          linkClass={'pagination__link'}
+          activeClass={'pagination__page--active'}
+          onChange={(clickedPage) => setPage(clickedPage)}
+          prevPageText={'‹'}
+          nextPageText={'›'}
         />
       </div>
-    </div>
   )
 }
 
 Pagination.propTypes = {
-  totalResults: PropTypes.string
+  totalResults: PropTypes.string,
+  setPage: PropTypes.func,
+  page: PropTypes.number
 }
 
 export default Pagination

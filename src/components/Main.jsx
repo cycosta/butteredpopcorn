@@ -19,6 +19,8 @@ function Main() {
 
   const [totalResults, setTotalResults] = useState('')
 
+  const [page, setPage] = useState()
+
   useEffect(() => {
     if (!keyword) return
     setLoading(true)
@@ -34,6 +36,20 @@ function Main() {
     })
   }, [keyword])
 
+  useEffect(() => {
+    setLoading(true)
+    getMovies(keyword, page).then(({ Error: message, Search, totalResults }) => {
+      if (Search) {
+        setMovies(Search)
+        setTotalResults(totalResults)
+      } else {
+        setMovies([])
+        setErrorMessage(message)
+      }
+      setLoading(false)
+    })
+  }, [page])
+
   return (
     <main className="main">
       <Search setKeyword={setKeyword} />
@@ -41,7 +57,17 @@ function Main() {
       {loading ? (
         <Loader />
       ) : (
-        !keyword ? <HomeCinema /> : <List movies={movies} errorMessage={errorMessage} totalResults={totalResults} />
+        !keyword ? (
+          <HomeCinema />
+        ) : (
+          <List
+            movies={movies}
+            errorMessage={errorMessage}
+            totalResults={totalResults}
+            setPage={setPage}
+            page={page}
+          />
+        )
       )}
     </main>
   )
