@@ -17,12 +17,15 @@ function Main() {
 
   const [loading, setLoading] = useState(false)
 
+  const [totalResults, setTotalResults] = useState('')
+
   useEffect(() => {
     if (!keyword) return
     setLoading(true)
-    getMovies(keyword).then(({ Error: message, Search }) => {
+    getMovies(keyword).then(({ Error: message, Search, totalResults }) => {
       if (Search) {
         setMovies(Search)
+        setTotalResults(totalResults)
       } else {
         setMovies([])
         setErrorMessage(message)
@@ -38,7 +41,7 @@ function Main() {
       {loading ? (
         <Loader />
       ) : (
-        !keyword ? <HomeCinema /> : <List movies={movies} errorMessage={errorMessage} />
+        !keyword ? <HomeCinema /> : <List movies={movies} errorMessage={errorMessage} totalResults={totalResults} />
       )}
     </main>
   )
