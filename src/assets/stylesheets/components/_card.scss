@@ -20,7 +20,7 @@
 
   &__figure {
     position: relative;
-    max-height: 460px;
+    height: 100%;
     overflow: hidden;
 
 		&::after {
@@ -37,8 +37,7 @@
 
 	&__image {
     width: 100%;
-    min-height: 460px;
-    max-height: 460px;
+    height: 100%;
     object-fit: cover;
     transition: .3s;
 	}
@@ -60,6 +59,10 @@
   &__title {
 		font-family: $titleFont;
     font-size: 2.4rem;
+
+    @include breakpoint(desktop) {
+      font-size: 2rem;
+    }
 	}
 
   &__year {
