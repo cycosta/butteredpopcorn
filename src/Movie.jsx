@@ -17,7 +17,6 @@ function Movie({ movieId }) {
   useEffect(() => {
     getMovie(movieId).then((data) => setMovie(data))
   }, [movieId])
-  console.log(movie)
 
   const {
     Runtime,
@@ -85,7 +84,7 @@ function Movie({ movieId }) {
           <div className="movie__poster">
             <img className="movie__image" src={image} alt={Title} />
             <button className="movie__bookmark">
-              <Heart />
+              <Heart movieId={movieId} />
             </button>
           </div>
         </div>

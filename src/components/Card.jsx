@@ -25,7 +25,7 @@ function Card({ id, poster, title, year }) {
         </button>
       </a>
       <button className="card__bookmark">
-        <Heart />
+        <Heart movieId={id} />
       </button>
     </li>
   )
