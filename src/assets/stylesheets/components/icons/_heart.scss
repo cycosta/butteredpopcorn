@@ -3,10 +3,11 @@
   height: 25px;
   fill: none;
   stroke: white;
+  stroke: $butter;
   stroke-width: 40;
 
   &--active {
     fill: $butter;
-    stroke: $butter;
+    animation: pop .5s linear forwards;
   }
 }
