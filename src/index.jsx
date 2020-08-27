@@ -7,7 +7,7 @@ import Movie from './Movie'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
+    <Router basepath={process.env.PUBLIC_URL}>
       <Home path="/" />
       <Movie path="/movie/:movieId" />
     </Router>
