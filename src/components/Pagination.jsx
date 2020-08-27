@@ -1,23 +1,35 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
+// Lib
+import ReactPaginate from 'react-paginate'
+
 function Pagination({ totalResults }) {
-  const [pagination, setPagination] = useState([])
+  const [pages, setPages] = useState(0)
 
   useEffect(() => {
     if (!totalResults) return
-    const pagination = createPagination(totalResults)
-    setPagination(pagination)
+    console.log(getPages(totalResults))
+    setPages(getPages(totalResults))
   }, [totalResults])
 
-  function createPagination(n) {
-    const pages = Math.ceil(parseInt(n) / 10)
-    return [...Array(pages).keys()].map(i => i + 1)
+  function getPages(n) {
+    return Math.ceil(parseInt(n) / 10)
   }
 
   return (
     <div>
-      {pagination.map((page) => <p key={page}>{page}</p>)}
+      <div className="commentBox">
+        <ReactPaginate
+          previousLabel={'<'}
+          nextLabel={'>'}
+          breakLabel={'...'}
+          pageCount={pages}
+          containerClassName={'pagination'}
+          subContainerClassName={'pagination__pages'}
+          activeClassName={'pagination__pages--active'}
+        />
+      </div>
     </div>
   )
 }
