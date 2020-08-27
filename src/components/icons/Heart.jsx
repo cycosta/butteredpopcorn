@@ -7,7 +7,7 @@ function Heart({ movieId }) {
   useEffect(() => {
     const isFavorite = localStorage.getItem(movieId)
     setFavorite(isFavorite)
-  }, [])
+  }, [movieId])
 
   function handleClick() {
     if (favorite) {

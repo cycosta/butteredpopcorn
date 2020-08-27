@@ -24,30 +24,25 @@ function Main() {
   useEffect(() => {
     if (!keyword) return
     setLoading(true)
-    getMovies(keyword).then(({ Error: message, Search, totalResults }) => {
-      if (Search) {
-        setMovies(Search)
-        setTotalResults(totalResults)
-      } else {
-        setMovies([])
-        setErrorMessage(message)
-      }
+    getMovies(keyword, page).then(({ movies, total, message }) => {
+      setMovies(movies)
+      setTotalResults(total)
+      setErrorMessage(message)
       setLoading(false)
+      setPage(1)
     })
+  // eslint-disable-next-line
   }, [keyword])
 
   useEffect(() => {
     setLoading(true)
-    getMovies(keyword, page).then(({ Error: message, Search, totalResults }) => {
-      if (Search) {
-        setMovies(Search)
-        setTotalResults(totalResults)
-      } else {
-        setMovies([])
-        setErrorMessage(message)
-      }
+    getMovies(keyword, page).then(({ movies, total, message }) => {
+      setMovies(movies)
+      setTotalResults(total)
+      setErrorMessage(message)
       setLoading(false)
     })
+  // eslint-disable-next-line
   }, [page])
 
   return (
