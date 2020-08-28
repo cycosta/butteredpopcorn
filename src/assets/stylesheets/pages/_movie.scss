@@ -1,13 +1,15 @@
 .movie {
   @extend .container;
 
-  margin: 60px 0 20px;
+  margin-top: 60px;
+  margin-bottom: 20px;
 
   @include breakpoint(tablet) {
     display: grid;
     place-items: center;
     height: 100vh;
-    margin: 0;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
   &__return {
