@@ -2,7 +2,7 @@ const apiKey = process.env.REACT_APP_OMDB_API_KEY
 
 // Search Movie
 export function getMovies(keyword, page = 1) {
-  return fetch(`http://www.omdbapi.com/?apiKey=${apiKey}&type=movie&s=${keyword}&page=${page}`)
+  return fetch(`https://www.omdbapi.com/?apiKey=${apiKey}&type=movie&s=${keyword}&page=${page}`)
     .then(response => response.json())
     .then(data => {
       const { Response, Search, totalResults, Error: message } = data
@@ -19,7 +19,7 @@ export function getMovies(keyword, page = 1) {
 
 // Get movie by id
 export function getMovie(id) {
-  return fetch(`http://www.omdbapi.com/?apiKey=${apiKey}&i=${id}`)
+  return fetch(`https://www.omdbapi.com/?apiKey=${apiKey}&i=${id}`)
   .then(response => response.json())
   .catch((error) => console.error(error))
 }
